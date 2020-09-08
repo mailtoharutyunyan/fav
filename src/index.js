@@ -76,12 +76,4 @@ app.post('/fav/:id', async (req, res) => {
 
 });
 
-app.delete('/fav/:id',async (req,res)=>{
-    const image = await Image.findOne({_id: req.params.id}).exec();
-    if (image) {
-        let newVar = await Image.findByIdAndDelete({_id: req.params.id});
-        res.status(200).json(newVar)
-    }
-})
-
 app.listen(3000, () => console.log('express started'));
